@@ -1,16 +1,19 @@
 syntax = "proto3";
 option java_multiple_files=true;
 option java_package = "io.quarkus.custom.proto";
-option java_outer_classname = "HelloWorld";
+option java_outer_classname = "User";
 
-service Greeter {
-  rpc SayHello(HelloRequest) returns (HelloReply){}
+service UserService {
+  rpc getUser(GetUserRequest) returns (GetUserReply){}
 }
 
-message HelloRequest {
-  string name = 1;
+message GetUserRequest {
+  string userId = 1;
 }
 
-message HelloReply {
-  string message = 1;
+message GetUserReply {
+  string userName = 1;
+  string userEmail = 2;
+  string userNickname = 3;
+  string userRole = 4;
 }
